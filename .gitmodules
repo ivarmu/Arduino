@@ -1,0 +1,3 @@
+[submodule "Sonoff-Tasmota"]
+	path = Sonoff-Tasmota
+	url = https://github.com/arendst/Sonoff-Tasmota.git
