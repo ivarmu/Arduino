@@ -1,0 +1,32 @@
+# https://github.com/arendst/Sonoff-Tasmota/wiki/Rules#20-rules-to-distinguish-switch1-and-switch2-without-the-use-of-relay1-and-relay2
+# 20. Rules to distinguish Switch1 and Switch2 (without the use of Relay1 and Relay2)
+# When two (or more) switches are defined as input and you want to distinguish these in the RESULT topic without the use of Relais, then consider the following rules.
+
+- SwitchMode1 1 will make Switch1#state to be 1 when ON and 0 when OFF
+SwitchMode1 1
+
+- SwitchMode2 1 will make Switch2#state to be 1 when ON and 0 when OFF
+SwitchMode2 1
+
+- Publish json with key POWER1 and value %value%
+Rule1 on switch1#state do publish stat/wemos-4/RESULT {"POWER1":"%value%"} endon
+
+- Publish json with key POWER2 and value %value%
+Rule2 on switch2#state do publish stat/wemos-4/RESULT {"POWER2":"%value%"} endon
+
+- Enable Rule1
+Rule1 1
+
+- Enable Rule2
+Rule2 1
+
+
+SwitchMode1 1
+SwitchMode2 1
+Rule1 on switch1#state do publish qiot/things/admin/TerraceLights/stat/SWITCH1 {"SWITCH1":"%value%"} endon
+Rule2 on switch2#state do publish qiot/things/admin/TerraceLights/stat/RESULT {"SWITCH2":"%value%"} endon
+Rule3 on switch1#state do publish qiot/things/admin/TerraceLights/stat/RESULT {"SWITCH1":"%value%","Date":"%timestamp%"} endon on switch2#state do publish qiot/things/admin/TerraceLights/stat/RESULT {"SWITCH2":"%value%","Date":"%timestamp%"} endon
+Rule1 1
+Rule2 1
+
+
