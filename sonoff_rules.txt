@@ -23,10 +23,6 @@ Rule2 1
 
 SwitchMode1 1
 SwitchMode2 1
-Rule1 on switch1#state do publish qiot/things/admin/TerraceLights/stat/SWITCH1 {"SWITCH1":"%value%"} endon
-Rule2 on switch2#state do publish qiot/things/admin/TerraceLights/stat/RESULT {"SWITCH2":"%value%"} endon
-Rule3 on switch1#state do publish qiot/things/admin/TerraceLights/stat/RESULT {"SWITCH1":"%value%","Date":"%timestamp%"} endon on switch2#state do publish qiot/things/admin/TerraceLights/stat/RESULT {"SWITCH2":"%value%","Date":"%timestamp%"} endon
+Rule1 on switch1#state do publish qiot/things/admin/TerraceLights/stat/RESULT {"SWITCH1":"%value%","Date":"%timestamp%"} endon on switch2#state do publish qiot/things/admin/TerraceLights/stat/RESULT {"SWITCH2":"%value%","Date":"%timestamp%"} endon
 Rule1 1
-Rule2 1
-
 
