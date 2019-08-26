@@ -4,7 +4,6 @@ TerraceLights:  Contains the implemented circuit designs, both schematics and PC
                 Json files are the source codes to be imported "as is" into EasyEDA designer.
                 They are already available through the following links:
                     https://easyeda.com/ivan.aragones.muniesa/terracelights
-                
                 A new H/W version is available at:
                     https://easyeda.com/ivan.aragones.muniesa/terracelights_copy
 
